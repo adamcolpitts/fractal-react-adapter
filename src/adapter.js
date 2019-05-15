@@ -57,7 +57,7 @@ class ReactAdapter extends Adapter {
     setEnv('_config', this._app.config(), context);
 
     delete require.cache[path];
-    const component = require(path);
+    const component = require(path).default;
     const element = React.createElement(component, context);
     const renderedHtml = this._renderMethod(element);
     const prettyHtml = prettyPrint(renderedHtml);
